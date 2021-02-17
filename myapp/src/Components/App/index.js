@@ -11,10 +11,10 @@ function App() {
   }, []);
 
   async function fetchPoke() {
-    const res = await fetch(process.env.REACT_APP_DAD_JOKES_URL);
+    const res = await fetch("https://pokeapi.co/api/v2/pokemon/1");
     const data = await res.json();
-    console.log(data);
-    setPokemon(data)
+    console.log(data); //why we cannot retrieve object data alone?
+    setPokemon(data.name);
   }
 
   function handleClick () {
@@ -26,7 +26,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <button className="button" onClick={handleClick}/>
-        <p>{pokemon.id}</p>
+        <p>{pokemon}</p>
       </header>
     </div>
   );
