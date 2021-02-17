@@ -1,7 +1,20 @@
-import logo from './logo.svg';
+import logo from './../../logo.svg';
 import './App.css';
 
 function App() {
+
+  const [joke, setJoke] = useState("");
+
+  useEffect(()=> {
+    fetchJoke();
+  }, []);
+
+  async function fetchJoke() {
+    const res = await fetch(process.env.REACT_APP_DAD_JOKES_URL)
+    const data = await res.json();
+    setJoke(data.joke)
+  }
+
   return (
     <div className="App">
       <header className="App-header">
