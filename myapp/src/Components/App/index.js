@@ -7,6 +7,8 @@ function App() {
   const [pokemon, setPokemon] = useState("");
   const [pokeImg, setPokeImg] = useState();
 
+  const[id, setId] = useState(0);
+
   useEffect(()=> {
     fetchPoke();
   }, []);
@@ -21,15 +23,23 @@ function App() {
   }
 
   function handleClick () {
+    function makeARandomNumber(){
+      let random = Math.floor(Math.random()*(151-1+1)+1);
+      setId(random);
+      console.log(random);
+    }
+    makeARandomNumber();
     fetchPoke();
   }
 
   return (
     <div className="App">
       <header className="App-header">
+      <h1>{pokemon}</h1>
+      <button className="button" onClick={handleClick}>click me</button>
         <img src={pokeImg} className="App-logo" alt="logo" />
-        <button className="button" onClick={handleClick}>click me</button>
-        <h1>name: {pokemon}</h1>
+        
+        
       </header>
     </div>
   );
