@@ -5,7 +5,7 @@ import './App.css';
 function App() {
 
   const [pokemon, setPokemon] = useState("");
-  const [pokeImg, setPokeImg] = useState();
+  const [pokeImg, setPokeImg] = useState("");
   const[id, setId] = useState(1);
 
   useEffect(()=> {
@@ -34,9 +34,11 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+      <h1 className="new" >Random Pokemon</h1>
+      <button className="button" onClick={handleClick}>Get random Pokemon</button>
       <h1>{pokemon}</h1>
-      <button className="button" onClick={handleClick}>click me</button>
-        <img src={pokeImg} className="App-logo" alt="logo" />
+      
+        <img src={pokeImg} className="App-logo" alt="" />
         
         
       </header>
