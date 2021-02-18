@@ -13,7 +13,7 @@ function App() {
   }, []);
 
   async function fetchPoke(id) {
-    const res = await fetch(process.env.REACT_APP_API_URL);
+    const res = await fetch(`${process.env.REACT_APP_API_URL}/${id}`);
     const data = await res.json();
     console.log(data); //why we cannot retrieve object data alone?
     setPokemon(data.name);
