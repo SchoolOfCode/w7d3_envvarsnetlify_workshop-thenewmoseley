@@ -6,14 +6,14 @@ function App() {
 
   const [pokemon, setPokemon] = useState("");
   const [pokeImg, setPokeImg] = useState();
-  const[id, setId] = useState(0);
+  const[id, setId] = useState(1);
 
   useEffect(()=> {
     fetchPoke();
   }, []);
 
   async function fetchPoke(id) {
-    const res = await fetch(`${process.env.REACT_APP_API_URL}/${id}`);
+    const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
     const data = await res.json();
     console.log(data); //why we cannot retrieve object data alone?
     setPokemon(data.name);
@@ -28,7 +28,7 @@ function App() {
       console.log(random);
     }
     makeARandomNumber();
-    fetchPoke();
+    fetchPoke(id);
   }
 
   return (
