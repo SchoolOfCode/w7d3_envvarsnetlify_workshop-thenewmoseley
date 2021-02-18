@@ -6,14 +6,13 @@ function App() {
 
   const [pokemon, setPokemon] = useState("");
   const [pokeImg, setPokeImg] = useState();
-
   const[id, setId] = useState(0);
 
   useEffect(()=> {
     fetchPoke();
   }, []);
 
-  async function fetchPoke() {
+  async function fetchPoke(id) {
     const res = await fetch(process.env.REACT_APP_API_URL);
     const data = await res.json();
     console.log(data); //why we cannot retrieve object data alone?
